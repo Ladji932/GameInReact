@@ -1,0 +1,31 @@
+[
+  {
+    "id": 1,
+    "name": "Goku",
+    "picture": "https://i.gifer.com/BQ0Y.gif",
+    "strenght": 1300,
+    "stamina": 23989,
+    "defense": 900,
+    "speed": 108,
+    "techniques": [ 
+      " Kamehameha ",
+      " Genki Dama ",
+      "Meteor Combination ",
+      " Point du dragon "
+    ]
+  },{
+    "id": 2,
+    "name": "Broly",
+    "picture": "https://www.dragon-ball-gif.com/wp-content/uploads/2021/09/Broly-Super-Saiyan-Legendaire-2.gif",
+    "strenght": 1500,
+    "stamina": 21787,
+    "defense": 800,
+    "speed": 100,
+    "techniques": [ 
+      " Omega Blaster",
+      "Gigantic Meteor",
+      "Omega Blaster",
+      "Gigantic Eraser"
+    ]
+  }
+]
