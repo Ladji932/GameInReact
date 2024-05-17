@@ -395,12 +395,12 @@ background-color: #fff;
 
     .techniques{
       margin: 0 5px;
-      font-size: 1em;
+      font-size: 0.7em;
     }
 
     nav{
-      position: fixed;
-      top: 10px;
+      position: absolute;
+      top: -20px;
     }
 
     header{
@@ -415,7 +415,7 @@ background-color: #fff;
 
     .figth h2{
       position: absolute;
-      top: 120px;
+      top: 170px;
       line-height: 20px;
       width: 90%;
       font-size: 0.8em;
@@ -437,7 +437,8 @@ background-color: #fff;
     }
 
     .test h4{
-      display: none;
+      color: black;
+        font-weight: bolder;
     }
 
     .progress-bar{
@@ -476,12 +477,12 @@ background-color: #fff;
     
          .techniques {
            margin: 0 5px;
-           font-size: 1em;
+           font-size: 0.7em;
          }
     
          nav {
-           position: fixed;
-           top: 10px;
+           position: absolute;
+           top: -20px;
          }
     
          header {
@@ -518,7 +519,8 @@ background-color: #fff;
          }
     
          .test h4 {
-           display: none;
+           color: black;
+           font-weight: bolder;
          }
     
          .progress-bar {
