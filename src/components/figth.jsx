@@ -133,7 +133,7 @@ function performAttack(attack, defender, selectedTechnique) {
         {character && (
           <div className="numberOne">
             <img src={character.picture} alt={character.name} />
-            <h4>Point de vie de {character.name}</h4>
+            <h4>{character.name}</h4>
             <div className="progress-bar">
               <div className={`progress ${stamina1 / character.stamina > 0.7 ? 'green' : stamina1 / character.stamina > 0.3 ? 'yellow' : 'red'}`} style={{ width: `${parseInt((stamina1 / character.stamina) * 100)}%` }}></div>
             </div>
@@ -144,7 +144,7 @@ function performAttack(attack, defender, selectedTechnique) {
         {opponent && (
           <div className="numberTwo">
             <img src={opponent.picture} alt={opponent.name} />
-            <h4>Point de vie de {opponent.name}</h4>
+            <h4>{opponent.name}</h4>
             <div className="progress-bar">
               <div className={`progress ${stamina2 / opponent.stamina >= 0.7 ? 'green' : stamina2 / opponent.stamina >= 0.3 ? 'yellow' : 'red'}`} style={{ width: `${parseInt((stamina2 / opponent.stamina) * 100)}%` }}></div>
             </div>

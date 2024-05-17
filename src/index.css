@@ -138,7 +138,7 @@ background-color: #fff;
 .figth button{
     margin-top: 40px;
     text-align: center;
-    font-size: 1.3em;
+    font-size: 1em;
     color: black;
     font-weight: bolder;
     border-radius: 15px;
@@ -163,27 +163,6 @@ background-color: #fff;
     line-height: 60px;
 }
 
-/*
-.figth button{
-  border-radius: 15px;
-  font-size: 1.3em;
-  font-weight: bolder;
-  cursor: pointer;
-  transition: 1s;
-  border: none;
-  background-color: transparent;
-  color: #fff;
-  margin-bottom: 30px;
-  margin-top: 18px;
-  background-color: #333;
-  padding: 10px;
-  border-radius: 50%;
-  }
-
-.figth button:hover{
-  transform: scale(1.1);
-  border: none;
-}*/
 
 .characters img{
   cursor: pointer;
@@ -387,4 +366,169 @@ background-color: #fff;
 
 .ruster form button:hover {
   background-color: #0056b3;
+}
+
+
+/*****************Version Mobile**********************************/
+@media screen and (max-width: 480px) {
+  .login {
+    width: 90vw;
+    flex-direction: column;
+  }
+
+    .ruster {
+      padding: 10px;
+    }
+
+
+  .ruster h1{
+    width: 90vw;
+  }
+    .ruster form {
+      width: 90vw;
+    }
+
+    .containerTechniques{
+      margin-bottom: 15px;
+      padding: 2px;
+    }
+
+    .techniques{
+      margin: 0 5px;
+      font-size: 1em;
+    }
+
+    nav{
+      position: fixed;
+      top: 10px;
+    }
+
+    header{
+      position: relative;
+      margin: 0;
+      padding-top: 10px;
+    }
+
+    .figth{
+      height: 100vh;
+    }
+
+    .figth h2{
+      position: absolute;
+      top: 120px;
+      line-height: 20px;
+      width: 90%;
+      font-size: 0.8em;
+      font-weight: bolder;
+      border: 2px solid #fff;
+      padding: 10px;
+    }
+
+    .figth img{
+      object-fit: cover;
+      height: 200px;
+      width: 90%;
+      margin-top: 20px;
+    }
+
+    .test{
+      height: 45%;
+      margin-top: 150px;
+    }
+
+    .test h4{
+      display: none;
+    }
+
+    .progress-bar{
+      margin-top: 30px;
+    }
+
+    .numberOne,.numberTwo{
+      padding:0;
+      margin: 0px 5px;
+    }
+    
+    }
+
+/*****************Version Tablettes**********************************/
+@media screen and (min-width: 481px) and (max-width: 1368px) {
+  .login {
+    height: 20vh;
+    width: 98vw;
+  }
+
+  .ruster{
+   padding: 10px;
+  }
+  .ruster form{
+    width: 90vw;
+  }
+
+     .ruster h1 {
+       width: 90vw;
+     }
+
+         .containerTechniques {
+           margin-bottom: 15px;
+           padding: 2px;
+         }
+    
+         .techniques {
+           margin: 0 5px;
+           font-size: 1em;
+         }
+    
+         nav {
+           position: fixed;
+           top: 10px;
+         }
+    
+         header {
+           position: relative;
+           margin: 0;
+           padding-top: 10px;
+         }
+    
+         .figth {
+           height: 100vh;
+         }
+    
+         .figth h2 {
+           position: absolute;
+           top: 120px;
+           line-height: 20px;
+           width: 90%;
+           font-size: 0.8em;
+           font-weight: bolder;
+           border: 2px solid #fff;
+           padding: 10px;
+         }
+    
+         .figth img {
+           object-fit: cover;
+           height: 200px;
+           width: 90%;
+           margin-top: 20px;
+         }
+    
+         .test {
+           height: 45%;
+           margin-top: 150px;
+         }
+    
+         .test h4 {
+           display: none;
+         }
+    
+         .progress-bar {
+           margin-top: 30px;
+         }
+    
+         .numberOne,
+         .numberTwo {
+           padding: 0;
+           margin: 0px 5px;
+         }
+              
 }
