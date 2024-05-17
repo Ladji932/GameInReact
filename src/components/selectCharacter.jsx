@@ -1,25 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import Header from '../header';
 
 const Character = ({ characterSelect, characters: initialCharacters, onCharacterUpdate }) => {
-
-  const generatorSpeed = () => {
-    let numberSpeed = Math.floor(Math.random() * 11) + 100;
-    return numberSpeed;
-  };
-  const generatorStrength = () => {
-    let numberStrength = Math.floor(Math.random() * (1500 - 1300 + 1)) + 1300;
-    return numberStrength;
-  };
-  const generatorDefense = () => {
-    let numberDefense = Math.floor(Math.random() * (900 - 800 + 1)) + 800;
-    return numberDefense;
-  };
-  const generatorStamina = () => {
-    let numberStamina =  Math.floor(Math.random() * (24000 - 21000 + 1)) + 21000;
-    return numberStamina;
-  };
+  const generatorSpeed = () => Math.floor(Math.random() * 11) + 100;
+  const generatorStrength = () => Math.floor(Math.random() * (1500 - 1300 + 1)) + 1300;
+  const generatorDefense = () => Math.floor(Math.random() * (900 - 800 + 1)) + 800;
+  const generatorStamina = () => Math.floor(Math.random() * (24000 - 21000 + 1)) + 21000;
 
   const [characters, setCharacters] = useState([]);
   const [newCharacter, setNewCharacter] = useState({
@@ -27,13 +14,15 @@ const Character = ({ characterSelect, characters: initialCharacters, onCharacter
     strenght: generatorStrength(),
     speed: generatorSpeed(),
     defense: generatorDefense(),
-    techniques: ["","","",""],
+    techniques: ["", "", "", ""],
     picture: '',
     stamina: generatorStamina()
   });
 
+  const charactersRef = useRef(null);
+  const lastCharacterRef = useRef(null);
+
   useEffect(() => {
-    console.log(initialCharacters)
     const storedCharacters = localStorage.getItem('Characters');
     if (storedCharacters) {
       setCharacters(JSON.parse(storedCharacters));
@@ -46,10 +35,10 @@ const Character = ({ characterSelect, characters: initialCharacters, onCharacter
   const onAddCharacter = () => {
     const maxLocalStorageCapacity = 5242880; 
     const storedCharacters = JSON.parse(localStorage.getItem('Characters')) || [];
-  
+
     const updatedCharacters = [...characters, { ...newCharacter, id: uuidv4() }];
-    const updatedCharactersSize = JSON.stringify(updatedCharacters).length * 2; // Taille en octets
-  
+    const updatedCharactersSize = JSON.stringify(updatedCharacters).length * 2; 
+
     if (updatedCharactersSize >= maxLocalStorageCapacity) {
       alert("Étant donné que le stockage local est actuellement plein, vous pourriez envisager de prioriser l'utilisation d'images au format WebP pour réduire la taille des fichiers ou de supprimer certains personnages de votre roster actuel")
       return;
@@ -67,10 +56,16 @@ const Character = ({ characterSelect, characters: initialCharacters, onCharacter
       alert("Veuillez remplir tous les champs du formulaire.");
       return;
     }
+
     const characterWithId = { ...newCharacter, id: uuidv4() };
     const updatedCharacters2 = [...characters, characterWithId];
+    setCharacters(updatedCharacters2);
     onCharacterUpdate(updatedCharacters2);
     localStorage.setItem('Characters', JSON.stringify(updatedCharacters2));
+
+    setTimeout(() => {
+      lastCharacterRef.current.scrollIntoView({ behavior: 'smooth' });
+    }, 100);
   };
 
   const handleChange = (e, index) => {
@@ -102,11 +97,15 @@ const Character = ({ characterSelect, characters: initialCharacters, onCharacter
   };
 
   return (
-    <div className='ruster'>
+    <div className='ruster' ref={charactersRef}>
       <h1>Listes des personnages</h1>
       <div className='characters-grid'>
         {characters.map((character, index) => (
-          <div key={index} className='character'>
+          <div 
+            key={index} 
+            className='character'
+            ref={index === characters.length - 1 ? lastCharacterRef : null}
+          >
             <h2>{character.name}</h2> 
             <img src={character.picture} alt={character.name} onClick={() => characterSelect(character)} />
             {character.id === 1 || character.id === 2 ? (
@@ -149,16 +148,13 @@ const Character = ({ characterSelect, characters: initialCharacters, onCharacter
           />
           <input
             style={{ display: "none" }}
-            type
-                         style={{ display: "none" }}
             type="text"
             placeholder="Defense"
             name="defense"
             value={newCharacter.defense}
             onChange={handleChange}
           />
-         {/* Techniques input fields */}
-        {[0, 1, 2, 3].map(index => (
+          {[0, 1, 2, 3].map(index => (
             <input
               key={index}
               type="text"

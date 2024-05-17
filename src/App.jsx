@@ -9,8 +9,6 @@ const App = () => {
   const [selectedCharacter, setSelectedCharacter] = useState(null);
   const [characters, setCharacters] = useState(data);
 
-  console.log(selectedCharacter)
-  
 
   const redirectCharacter = () => {
     setSelectedCharacter(null);
